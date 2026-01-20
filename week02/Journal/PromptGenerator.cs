@@ -28,8 +28,7 @@ public class PromptGenerator
         int index = random.Next(_prompts.Count);
         return _prompts[index];
     }
-
-    // Added for exceeding requirements: Allow adding custom prompts
+    
     public void AddPrompt(string prompt)
     {
         _prompts.Add(prompt);

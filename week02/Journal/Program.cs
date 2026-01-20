@@ -30,11 +30,9 @@ class Program
                     LoadJournal(journal);
                     break;
                 case "5":
-                    // Exceeding requirement: Add custom prompt
                     AddCustomPrompt(promptGenerator);
                     break;
                 case "6":
-                    // Exceeding requirement: Show statistics
                     journal.DisplayStats();
                     break;
                 case "7":
@@ -81,7 +79,6 @@ class Program
         Console.Write("Enter filename to save: ");
         string filename = Console.ReadLine();
         
-        // Add .txt extension if not present
         if (!filename.EndsWith(".txt"))
             filename += ".txt";
             
@@ -93,7 +90,6 @@ class Program
         Console.Write("Enter filename to load: ");
         string filename = Console.ReadLine();
         
-        // Add .txt extension if not present
         if (!filename.EndsWith(".txt"))
             filename += ".txt";
             

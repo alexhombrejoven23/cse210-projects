@@ -39,7 +39,6 @@ public class Journal
             {
                 foreach (Entry entry in _entries)
                 {
-                    // Using pipe (|) as separator to avoid comma issues
                     outputFile.WriteLine($"{entry._date}|{entry._promptText}|{entry._entryText}");
                 }
             }
@@ -62,7 +61,7 @@ public class Journal
             }
 
             string[] lines = File.ReadAllLines(file);
-            _entries.Clear(); // Clear existing entries as per requirement
+            _entries.Clear();
 
             foreach (string line in lines)
             {
@@ -82,7 +81,6 @@ public class Journal
         }
     }
 
-    // Added for exceeding requirements: Statistics feature
     public void DisplayStats()
     {
         Console.WriteLine("\n=== Journal Statistics ===");
