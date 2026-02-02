@@ -1,104 +1,56 @@
 using System;
-using System.Collections.Generic;
 
-class Program
+namespace OnlineOrdering
 {
-    static void Main(string[] args)
+    class Program
     {
-        Console.WriteLine("YouTube Video Analysis Program");
-        Console.WriteLine("===============================\n");
-
-        List<Video> videos = new List<Video>();
-
-        Video video1 = new Video("Easy Cooking: Alfredo Pasta", "Chef Maria", 420);
-        video1.AddComment(new Comment("Carlos Lopez", "Excellent recipe! I made it last night and it was delicious."));
-        video1.AddComment(new Comment("Ana Torres", "I love how you explain each step, very clear."));
-        video1.AddComment(new Comment("Pedro Martinez", "Can I substitute the cream with something lighter?"));
-        video1.AddComment(new Comment("Laura Sanchez", "I'll try it this weekend, thanks for sharing."));
-        videos.Add(video1);
-
-        Video video2 = new Video("Home Workout Routine", "FitLife Channel", 600);
-        video2.AddComment(new Comment("Miguel Angel", "Great routine, I feel more active after one week."));
-        video2.AddComment(new Comment("Sofia Ruiz", "Perfect for those of us who don't have time to go to the gym."));
-        video2.AddComment(new Comment("David Perez", "The 8:30 minute is my favorite, what a burn!"));
-        videos.Add(video2);
-
-        Video video3 = new Video("Python Tutorial: Introduction", "CodeMaster Pro", 900);
-        video3.AddComment(new Comment("Alejandro Garcia", "Exactly what I needed to start, thank you very much."));
-        video3.AddComment(new Comment("Elena Vargas", "Will there be a part two? I want to learn more."));
-        video3.AddComment(new Comment("Roberto Diaz", "Clear and concise explanation, perfect for beginners."));
-        video3.AddComment(new Comment("Carmen Jimenez", "The practical examples are very helpful, thank you."));
-        videos.Add(video3);
-
-        Video video4 = new Video("Review: Latest Smartphone on Market", "TechReviewer", 480);
-        video4.AddComment(new Comment("Javier Romero", "Very comprehensive analysis, helped me decide on my purchase."));
-        video4.AddComment(new Comment("Patricia Gomez", "I'd like you to compare it with the previous model."));
-        video4.AddComment(new Comment("Fernando Cruz", "The battery life is impressive, just as you mentioned."));
-        videos.Add(video4);
-
-        foreach (Video video in videos)
+        static void Main(string[] args)
         {
-            Console.WriteLine("======================================");
-            Console.WriteLine($"Title: {video.Title}");
-            Console.WriteLine($"Author: {video.Author}");
-            Console.WriteLine($"Length: {video.Length} seconds ({video.Length / 60} minutes)");
-            Console.WriteLine($"Number of Comments: {video.GetNumberOfComments()}");
-            Console.WriteLine("\nComments:");
-            Console.WriteLine("------------");
-            
-            foreach (Comment comment in video.GetComments())
-            {
-                Console.WriteLine($"- {comment.Name}: {comment.Text}");
-            }
-            Console.WriteLine();
+            Console.WriteLine("Online Ordering System");
+            Console.WriteLine("======================\n");
+
+            Address address1 = new Address("123 Main St", "New York", "NY", "USA");
+            Address address2 = new Address("456 Oak Ave", "Toronto", "Ontario", "Canada");
+            Address address3 = new Address("789 Pine Rd", "Los Angeles", "CA", "USA");
+
+            Customer customer1 = new Customer("John Smith", address1);
+            Customer customer2 = new Customer("Maria Garcia", address2);
+            Customer customer3 = new Customer("David Johnson", address3);
+
+            Product product1 = new Product("Laptop", "P001", 899.99, 1);
+            Product product2 = new Product("Mouse", "P002", 25.50, 2);
+            Product product3 = new Product("Keyboard", "P003", 49.99, 1);
+            Product product4 = new Product("Monitor", "P004", 199.99, 1);
+            Product product5 = new Product("USB Cable", "P005", 9.99, 3);
+            Product product6 = new Product("Headphones", "P006", 79.99, 1);
+
+            Order order1 = new Order(customer1);
+            order1.AddProduct(product1);
+            order1.AddProduct(product2);
+            order1.AddProduct(product5);
+
+            Order order2 = new Order(customer2);
+            order2.AddProduct(product3);
+            order2.AddProduct(product4);
+            order2.AddProduct(product6);
+
+            Order order3 = new Order(customer3);
+            order3.AddProduct(product1);
+            order3.AddProduct(product6);
+            order3.AddProduct(product2);
+            order3.AddProduct(product5);
+
+            DisplayOrderDetails(order1);
+            DisplayOrderDetails(order2);
+            DisplayOrderDetails(order3);
         }
 
-        Console.WriteLine("======================================");
-        Console.WriteLine("Analysis completed. Total videos processed: " + videos.Count);
+        static void DisplayOrderDetails(Order order)
+        {
+            Console.WriteLine(order.GetShippingLabel());
+            Console.WriteLine(order.GetPackingLabel());
+            Console.WriteLine($"Total Cost: ${order.CalculateTotalCost():F2}");
+            Console.WriteLine("===========================================\n");
+        }
     }
 }
-
-public class Comment
-{
-
-    public string Name { get; }
-    public string Text { get; }
-
-    public Comment(string name, string text)
-    {
-        Name = name;
-        Text = text;
-    }
-}
-
-public class Video
-{
-    public string Title { get; }
-    public string Author { get; }
-    public int Length { get; }
- 
-    private List<Comment> comments;
-
-    public Video(string title, string author, int length)
-    {
-        Title = title;
-        Author = author;
-        Length = length;
-        comments = new List<Comment>();
-    }
-
-    public void AddComment(Comment comment)
-    {
-        comments.Add(comment);
-    }
-
-    public int GetNumberOfComments()
-    {
-        return comments.Count;
-    }
-
-    public List<Comment> GetComments()
-    {
-        return comments;
-    }
-}   
