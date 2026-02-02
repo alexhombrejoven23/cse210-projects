@@ -28,7 +28,6 @@ namespace OnlineOrdering
                 total += product.GetTotalCost();
             }
 
-            // Add shipping cost
             total += _customer.IsInUSA() ? 5 : 35;
             
             return total;
