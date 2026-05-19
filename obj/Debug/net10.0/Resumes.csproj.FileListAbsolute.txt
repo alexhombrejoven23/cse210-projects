@@ -7,7 +7,6 @@ C:\Users\edwin\Desktop\cse210-projects\cse210-projects\week02\Resumes\obj\Debug\
 C:\Users\edwin\Desktop\cse210-projects\cse210-projects\week02\Resumes\obj\Debug\net10.0\Resumes.AssemblyInfoInputs.cache
 C:\Users\edwin\Desktop\cse210-projects\cse210-projects\week02\Resumes\obj\Debug\net10.0\Resumes.AssemblyInfo.cs
 C:\Users\edwin\Desktop\cse210-projects\cse210-projects\week02\Resumes\obj\Debug\net10.0\Resumes.csproj.CoreCompileInputs.cache
-C:\Users\edwin\Desktop\cse210-projects\cse210-projects\week02\Resumes\obj\Debug\net10.0\Resumes.sourcelink.json
 C:\Users\edwin\Desktop\cse210-projects\cse210-projects\week02\Resumes\obj\Debug\net10.0\Resumes.dll
 C:\Users\edwin\Desktop\cse210-projects\cse210-projects\week02\Resumes\obj\Debug\net10.0\refint\Resumes.dll
 C:\Users\edwin\Desktop\cse210-projects\cse210-projects\week02\Resumes\obj\Debug\net10.0\Resumes.pdb
