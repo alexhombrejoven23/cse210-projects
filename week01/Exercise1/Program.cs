@@ -1,15 +1,34 @@
-using System;
-
-class Program
+class Assignment
 {
-    static void Main(string[] args)
+    protected string _studentName;
+    protected string _topic;
+
+    public Assignment(string studentName, string topic)
     {
-        Console.Write("What is your first name? ");
-        string firstName = Console.ReadLine();
+        _studentName = studentName;
+        _topic = topic;
+    }
 
-        Console.Write("What is your last name? ");
-        string lastName = Console.ReadLine();
+    public string GetSummary()
+    {
+        return $"{_studentName} - {_topic}";
+    }
+}
 
-        Console.WriteLine($"\nYour name is {lastName}, {firstName} {lastName}.");
+class MathAssignment : Assignment
+{
+    private string _textbookSection;
+    private string _problems;
+
+    public MathAssignment(string studentName, string topic, string textbookSection, string problems)
+        : base(studentName, topic)
+    {
+        _textbookSection = textbookSection;
+        _problems = problems;
+    }
+
+    public string GetHomeworkList()
+    {
+        return $"Section {_textbookSection} Problems {_problems}";
     }
 }
