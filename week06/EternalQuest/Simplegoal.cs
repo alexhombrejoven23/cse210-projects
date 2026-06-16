@@ -1,4 +1,3 @@
-// A Simple Goal is completed once and never again.
 public class SimpleGoal : Goal
 {
     private bool _isComplete;
@@ -16,8 +15,6 @@ public class SimpleGoal : Goal
             _isComplete = true;
             return _points;
         }
-
-        // Already done
         return 0;
     }
 
@@ -26,7 +23,6 @@ public class SimpleGoal : Goal
         return _isComplete;
     }
 
-    // Format:: SimpleGoal:name,description,points,isComplete
     public override string GetStringRepresentation()
     {
         return $"SimpleGoal:{_shortName},{_description},{_points},{_isComplete}";

@@ -11,15 +11,11 @@ public abstract class Goal
         _points = points;
     }
 
-    // Each goal type handles recording differently
     public abstract int RecordEvent();
-
-    // Each goal type decides when it's finished
     public abstract bool IsComplete();
-
-    // Each goal type knows how to save itself
     public abstract string GetStringRepresentation();
-    
+
+    // ChecklistGoal overrides this to include progress (e.g. "3/10 times")
     public virtual string GetDetailsString()
     {
         string checkbox = IsComplete() ? "[X]" : "[ ]";

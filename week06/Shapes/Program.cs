@@ -1,22 +1,25 @@
-using System;
-using System.Collections.Generic;
+// =============================================================
+// Eternal Quest — CSE 210
+//
+// EXCEEDING REQUIREMENTS:
+//
+// 1. Level System
+//    Players earn titles as their score grows:
+//    Apprentice → Seeker → Warrior → Champion → Hero → Legend → Eternal Master
+//    The current level is displayed on every screen, and a message
+//    appears when the player levels up.
+//
+// 2. Negative Goals
+//    A new NegativeGoal class represents bad habits.
+//    Recording one costs the player points instead of awarding them.
+//    The score never drops below zero.
+// =============================================================
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the Shapes Project.");
-
-        // Creating a list of shapes
-        List<Shape> shapes = new List<Shape>();
-
-        shapes.Add(new Square("red", 5));
-        shapes.Add(new Rectangle("blue", 4, 6));
-        shapes.Add(new Circle("green", 3));
-
-        foreach (Shape shape in shapes)
-        {
-            Console.WriteLine($"Color: {shape.GetColor()}, Shape: {shape.GetType().Name}, Area: {shape.GetArea():F2}");
-        }
+        GoalManager manager = new GoalManager();
+        manager.Start();
     }
 }
