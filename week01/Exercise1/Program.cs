@@ -1,34 +1,31 @@
-class Assignment
+public abstract class Goal
 {
-    protected string _studentName;
-    protected string _topic;
+    public abstract void RecordEvent();
+    public abstract int GetPoints();
+}
 
-    public Assignment(string studentName, string topic)
+public class SimpleGoal : Goal
+{
+    public override void RecordEvent()
     {
-        _studentName = studentName;
-        _topic = topic;
+        _isComplete = true;
     }
 
-    public string GetSummary()
+    public override int GetPoints()
     {
-        return $"{_studentName} - {_topic}";
+        return _points;
     }
 }
 
-class MathAssignment : Assignment
+public class EternalGoal : Goal
 {
-    private string _textbookSection;
-    private string _problems;
-
-    public MathAssignment(string studentName, string topic, string textbookSection, string problems)
-        : base(studentName, topic)
+    public override void RecordEvent()
     {
-        _textbookSection = textbookSection;
-        _problems = problems;
+        // Never completes, always gives points
     }
 
-    public string GetHomeworkList()
+    public override int GetPoints()
     {
-        return $"Section {_textbookSection} Problems {_problems}";
+        return _points;
     }
 }
