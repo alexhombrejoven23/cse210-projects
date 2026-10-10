@@ -1,9 +1,42 @@
-using System;
+﻿using System;
+
+// EXCEEDING REQUIREMENTS:
+// Prompts and questions are not repeated until all of them have been
+// used at least once in the same session.
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the Mindfulness Project.");
+        BreathingActivity breathing = new BreathingActivity();
+        ReflectingActivity reflecting = new ReflectingActivity();
+        ListingActivity listing = new ListingActivity();
+
+        string choice = "";
+
+        while (choice != "4")
+        {
+            Console.Clear();
+            Console.WriteLine("Menu Options:");
+            Console.WriteLine("  1. Start breathing activity");
+            Console.WriteLine("  2. Start reflecting activity");
+            Console.WriteLine("  3. Start listing activity");
+            Console.WriteLine("  4. Quit");
+            Console.Write("Select a choice from the menu: ");
+            choice = Console.ReadLine();
+
+            if (choice == "1")
+            {
+                breathing.Run();
+            }
+            else if (choice == "2")
+            {
+                reflecting.Run();
+            }
+            else if (choice == "3")
+            {
+                listing.Run();
+            }
+        }
     }
 }
