@@ -9,17 +9,30 @@ public class SimpleGoal : Goal
         _isComplete = false;
     }
 
-    public override void RecordEvent()
+    // Second constructor: used when loading a goal from the file
+    public SimpleGoal(string name, string description, int points, bool isComplete) : base(name, description, points)
     {
+        _isComplete = isComplete;
+    }
+
+    public override int RecordEvent()
+    {
+        if (_isComplete)
+        {
+            return 0;
+        }
+
+        _isComplete = true;
+        return _points;
     }
 
     public override bool IsComplete()
     {
-        return false;
+        return _isComplete;
     }
 
     public override string GetStringRepresentation()
     {
-        return "";
+        return $"SimpleGoal:{_shortName}|{_description}|{_points}|{_isComplete}";
     }
 }
